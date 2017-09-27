@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+
+    if error
+      h3=error
+
+    div.row(class="loginForm")
+      h4.loginWord Log In 
+      form.col.s12(method="POST" action="/login")
+        div.row
+          .input-field.col.s12
+            input#username.validate(type='text', name="username", placeholder="Username", value=username, required)
+            label(for='username') Username
+        div.row
+          .input-field.col.s12
+            input#password.validate(type='password', name="password", placeholder="Password", required)
+            label(for='password') Password
+        button.btn.waves-effect.waves-light.green(type="submit") Submit
+            i.material-icons.right send
+        a.right(href="/registration") Create an Account

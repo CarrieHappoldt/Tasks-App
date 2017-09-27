@@ -1,0 +1,57 @@
+block variables
+doctype html
+html
+  head
+    // Import Google Icon Font
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    // Import materialize.css
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css')
+    // Let browser know website is optimized for mobile
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title ToDo App
+    
+  body
+    nav.light-blue.lighten-1(role='navigation')
+      .nav-wrapper.container
+        a.brand-logo.logoWord(href="/welcome") ToDo App
+        img.circle.responsive-img.logoImg(src='/logo.png', alt="Logo", style="height:60px")
+        ul.right.hide-on-med-and-down.valign-wrapper
+          li.valign-wrapper
+            img.circle.responsive-img.valign-wrapper(src=avatarUrl, style="height:50px")
+            a(href=usernameHref)=email
+            form( method="GET" action="/login")
+              button.btn-flat.waves-effect.waves-light.left.logOutBtn LogOut
+        ul#nav-mobile.side-nav
+          li
+            a(href='#') Navbar Link
+        a.button-collapse(href='#', data-activates='nav-mobile')
+          i.material-icons menu
+
+    div.container(class="todoapp")
+      block content
+    
+    footer.page-footer.footerColor
+      div.container
+        div.row
+          div.col.s8
+            h5.white-text Carrie Happoldt
+            p.grey-text.text-lighten-4 2017 - JS, PUG, Materialize, Express and Node.js Project
+          div.col.s4
+            p.grey-text.text-lighten-4.right
+              | Email: carrie@happoldt.com
+              br  
+              | Cell: 303-396-5285
+              br
+              | Address: Arvada, CO
+              
+      // Import jQuery before materialize.js
+    
+    script(type='text/javascript', src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(src ='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js')
+      
+    script
+      include client.js
+      
+    style
+      include style.css
+      

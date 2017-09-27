@@ -1,0 +1,28 @@
+extends layout.pug
+
+block content
+    if error
+      h4 Sorry:
+      h5=error
+    div.row
+      h4.loginWord Register
+      form.col.s12(method="POST", action="/registration" class="regForm")
+        div.row
+          .input-field.col.s12
+            input#username.validate(type='text' name="username" value=username required)
+            label(for='Username') Username
+        div.row
+          .input-field.col.s12
+            input#password.validate(type='password' name="password" required)
+            label(for='password') Password
+        div.row
+          .input-field.col.s12
+            input#passwordComformation.validate(type='password' name="passwordComformation" required)
+            label(for='passwordComformation') Please conform your Password
+        div.row
+          .input-field.col.s12
+            input#email.validate(type='email' name="email" value=email required)
+            label(for='email') Email
+        button.btn.waves-effect.waves-light.green(type="submit" id="regSubmit") Submit
+          i.material-icons.right send
+        a.right(href="/login") Already have an account? Log In Here     

@@ -1,0 +1,73 @@
+/*body {*/
+/*    background-color: red;*/
+/*}*/
+
+.todoapp .collection-item-with-button {
+    padding-bottom: 25px;
+}
+
+.todoapp .label{
+    font-size: large;
+    color: black;
+}
+
+.todoapp .taskForm {
+    padding-top: 10px;
+}
+
+.todoapp .deleteBtn{
+    margin-left: 10px;
+}
+
+input[type=checkbox]:checked + .strikethrough{
+  text-decoration: line-through;
+}
+
+/*.loginForm {
+/ margin-top: 20px;
+}
+
+.regForm {
+  margin-top: 20px; 
+}*/
+
+.errorForm{
+    margin-top: 20px;
+}
+
+.todoapp .errLoginBtn {
+  margin-left: 10px;  
+}
+
+.todoapp .regFormLoginBtn {
+   margin-top: 20px; 
+}
+
+.todoapp .loginFormRegBtn {
+   margin-top: 20px; 
+}
+
+.logoImg {
+     margin-top: 2px;
+}
+
+.logoWord{
+    margin-left: 70px
+}
+
+.loginWord {
+    margin-left: 8px;
+}
+
+.loginAnchErrorPage{
+    margin-right: 10px;
+}
+
+.hideBtn, .showBtn{
+    font-size: 15px;
+}
+
+.footerColor{
+   background-color: #29b6f6;
+   margin-top: 20px;
+}

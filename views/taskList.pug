@@ -1,0 +1,51 @@
+extends layout.pug
+
+block variables
+    - var email=user.email
+    - var avatarUrl = user.avatarUrl
+    - var usernameHref = "/" + user.username + "/profile"
+
+block content
+    if error
+        h4 Sorry:
+        h5=error
+    
+    h4.loginWord ToDo List 
+        ul(class="collection")
+            each val in tasks
+                li(class="collection-item collection-item-with-button list taskLine", id="listID" + val.id)
+                     form(method="POST", action=`/${user.username}/tasks/delete`, class="taskForm")
+                            button.waves-effect.waves-light.btn.right(class="deleteBtn", type="submit", name ="taskToDelete", value = val.id )
+                                i.material-icons remove
+                            a.btn.waves-effect.waves-light.btn.right.modal-trigger(href="#edit-task-modal", data-target="edit-task-modal", value = val.id, class="editTaskModal", name = val.name)  
+                                i.material-icons edit
+                            input.filled-in.inputCheck(id = val.id, type='checkbox', checked = val.complete, class="checkbox")
+                            label(for=val.id class="label strikethrough")=val.name
+        a.btn-floating.btn-large.waves-effect.waves-light.red.right.modal-trigger(href="#new-task-modal", data-target="new-task-modal")
+            i.material-icons add
+        
+        a(href="#" class="hideBtn") Hide Completed
+        a(href="#" class="showBtn") Show Completed
+                    
+        #new-task-modal.modal
+            form(method="POST", action=`/${user.username}/tasks`)
+                .modal-content
+                    h4 New Task
+                    div.input-field
+                        input(id="taskName", placeholder="Name", name="taskName", class="validate", required)
+                .modal-footer
+                    button.btn.waves-effect.waves-light(type="submit", name="submit") Submit
+                        i.material-icons.right send
+
+    
+    #edit-task-modal.modal
+        form(method="POST", action=`/${user.username}/tasks/edit`)
+            .modal-content
+                h4 Edit Task
+                div.input-field
+                    input(id="newTaskName", placeholder="Task Name", name="newTaskName", class="validate")
+                    input(hidden, id="hiddenModalInput", name="taskToEditID")
+            .modal-footer
+                button.btn.waves-effect.waves-light(type="submit") Submit
+                    i.material-icons.right send
+    

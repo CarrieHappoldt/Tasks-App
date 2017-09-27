@@ -1,0 +1,41 @@
+extends layout
+
+block variables
+    - var email = user.email
+    - var avatarUrl = user.avatarUrl
+    - var usernameHref = "/" + user.username + "/profile"
+    - var userTaskListHref = "/" + user.username + "/tasks"
+
+block content
+    if error
+      h4 Something has gone wrong, with editing!
+        h5 Error:
+        p=message
+    
+    h4 Profile Page
+      div.row
+        div.col.s6
+          div.row
+            .input-field.col.s10
+              input(type='text' name="newUsername" value=user.username id="profileUserName" disabled)
+              label(for='Username') Username
+          div.row
+            .input-field.col.s10
+              input.validate(type='email' name="newEmail" value=email  id="profileEmail" disabled)
+              label(for='email') Email
+        div.col.s6
+          div.field.col.s10
+            img.responsive-img.valign-wrapper.profileImg(src=avatarUrl, style="height:200px")
+      button.btn.waves-effect.waves-light(type="submit" id="editBtnProfile") Edit
+        i.material-icons.right edit
+      form(method="POST" action=`${usernameHref}`)
+        input(hidden, id="hiddenEditProfileName", name="newUsername")
+        input(hidden, id="hiddenEditProfileEmail", name="newEmail")
+        button.btn.waves-effect.waves-light(type="submit" id="saveBtnProfile") Save
+          i.material-icons.right save  
+      
+    a(href=`${userTaskListHref}`) Return to your list
+      br
+    br  
+        
+        
