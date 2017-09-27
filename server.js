@@ -46,6 +46,8 @@ app.use((err, req, res, next) => {
 });
 
 //SERVER
-app.listen(process.env.PORT, process.env.IP, function() {
-  console.log(`listening on ${process.env.PORT}`)
+var port = process.env.PORT || 3000;
+
+app.listen(port, function(){
+    console.log('Express Server is listening on port', port);
 });

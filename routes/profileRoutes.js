@@ -2,10 +2,11 @@ const express = require('express');
 const userService = require("../services/userService.js");
 const router = express.Router()
 
+//Profile Routes
 router.get("/:username/profile", (req, res, next) => {
     userService.getUser(req.params.username)
         .then( user => res.render('profile', {user}) )
-        .catch( error => res.render('profile', {error : error.message}));  
+        .catch( error => res.render('profile', {error : error , user} ) )
 });
 
 router.post("/:username/profile", (req, res, next) => {
@@ -25,10 +26,10 @@ router.post("/:username/profile", (req, res, next) => {
                 userService.checkUsername(newUsername) //check that user name isn't taken
                 .then( () => userService.edit(currentUserName, newUsername, newEmail) )
                 .then( () => res.redirect(`/${newUsername}/profile`) )
-                .catch( error => res.render('profile', {error : error.message}) )
+                .catch( error => res.render('profile', {error : error , user} ) )
             }
         })
-        .catch( error => res.render('profile', {error : error.message}) )
+        .catch( error => res.render('profile', {error : error , user} ) )
 });
 
 

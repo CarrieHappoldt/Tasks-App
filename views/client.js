@@ -4,13 +4,10 @@
 $( ".editTaskModal" ).click(function() {
   let taskID = $(this).attr("value");
   let taskName = $(this).attr("name");
-  // let taskID = this.getAttribute("value");
-  // let taskName = this.getAttribute("name");
-  
+ 
   $("#newTaskName").attr("value", taskName);
   $("#hiddenModalInput").attr("value", taskID);
-  // document.getElementById("newTaskName").setAttribute("placeholder", taskName)
-  // document.getElementById("hiddenModalInput").setAttribute("value", taskID);
+ 
 });
 
 //to get modal to work  
@@ -93,7 +90,7 @@ $("#saveBtnProfile").hide();
 $("#editBtnProfile").click(function(){
   $("#profileUserName").prop("disabled", false);
   $("#profileEmail").prop("disabled", false);
-  //$(".profileImg").prop("style", "border: 3px solid DodgerBlue; height:203px")
+
   $("#editBtnProfile").hide();
   $("#saveBtnProfile").show();
 })
@@ -101,11 +98,10 @@ $("#editBtnProfile").click(function(){
 $("#saveBtnProfile").click(function(){
   $("#profileUserName").prop("disabled", true);
   $("#profileEmail").prop("disabled", true);
-  //$(".profileImg").prop("style", "height:200px")
+
   $("#editBtnProfile").show();
   $("#saveBtnProfile").hide();
 })
-
 
 $( "#saveBtnProfile" ).click(function() {
   let newUsername = $("#profileUserName").val()

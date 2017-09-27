@@ -45,10 +45,8 @@ function addUser(userInfo, username){
 function checkUsername(username){
     return new Promise( (resolve, reject) => {
        if(users[username]) {
-            //console.log("User Name Was taken, rejected")
             reject(Error(`Username is already taken`));
         } else {
-            //console.log("User Name is not taken, resolved")
             resolve();
         } 
     })
@@ -71,7 +69,6 @@ function edit(username, newUsername, newEmail){
            if (username !== newUsername){
                users[newUsername] = users[username]
                delete users[username]
-               console.log(users)
                 return
             } 
         })

@@ -42,7 +42,6 @@ function addTask(userId, task) {
             reject(Error(`No such user ${userId}`))
         }
     })
-    
         .then( () => getAll(userId) )
 }
 /**
@@ -79,7 +78,7 @@ function deleteTask(userId, taskID){
  //EDITS A TASK THEN GETS THE TASKLIST WTIH getAll()
  function editTask(userId, taskID, newTaskName){
     return new Promise((resolve, reject) => {
-        if(newTaskName != ""){ //this should have been a client side check
+        if(newTaskName != ""){ 
             if(userTasks[userId]){
                 let tasks = userTasks[userId];
                 let taskIndex;

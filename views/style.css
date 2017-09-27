@@ -1,6 +1,3 @@
-/*body {*/
-/*    background-color: red;*/
-/*}*/
 
 .todoapp .collection-item-with-button {
     padding-bottom: 25px;
@@ -22,14 +19,6 @@
 input[type=checkbox]:checked + .strikethrough{
   text-decoration: line-through;
 }
-
-/*.loginForm {
-/ margin-top: 20px;
-}
-
-.regForm {
-  margin-top: 20px; 
-}*/
 
 .errorForm{
     margin-top: 20px;

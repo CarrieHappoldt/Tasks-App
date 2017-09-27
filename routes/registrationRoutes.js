@@ -6,7 +6,7 @@ const router = express.Router();
 
 const avatarPicArray = [ "pic1.jpg", "pic2.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg", "pic6.jpg" ];
 
-//REG PAGE
+//Registration PAGE
 router.get("/registration", (req, res, next) => {
     res.render("registration");
 });
